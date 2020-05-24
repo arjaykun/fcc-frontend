@@ -23,6 +23,7 @@ function App() {
 		const response = await fetch(url).catch( err =>console.log(err));
 		const data = await response.json();
 		setQuotes(data.quotes);
+		setLoading(false)
 	}
 
 	const fetchQuote = () => {
@@ -35,31 +36,35 @@ function App() {
 
   return (
   	<div id="wrapper">
-	    <div id="quote-box">
-	      <h1 id="text">{ quote.quote }</h1>
-	      <p id="author">~ { quote.author }</p>
+	    { 
+	    	loading? 'loading' :
+
+		    <div id="quote-box">
+		      <h1 id="text">{ quote.quote }</h1>
+		      <p id="author">~ { quote.author }</p>
 
 
-	      <div id="quote-options">
-		      <a 
-		      	href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="${quote.quote}-${quote.author}"`} 
-		      	id="tweet-quote"
-		      	target="_blank"
-		      	rel="noopener noreferrer"
-		      	disabled={loading}
-		      >
-		      	Tweet
-		      </a>
-		      <button 
-		      	id="new-quote" 
-		      	onClick={fetchQuote}
-		      	disabled={loading}
-		      	>
-		      		New Quote
-		      	</button>
-	      </div> 
+		      <div id="quote-options">
+			      <a 
+			      	href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="${quote.quote}-${quote.author}"`} 
+			      	id="tweet-quote"
+			      	target="_blank"
+			      	rel="noopener noreferrer"
+			      	disabled={loading}
+			      >
+			      	Tweet
+			      </a>
+			      <button 
+			      	id="new-quote" 
+			      	onClick={fetchQuote}
+			      	disabled={loading}
+			      	>
+			      		New Quote
+			      	</button>
+		      </div> 
 
-	    </div>
+		    </div>
+	    }
     </div>
   );
 }
