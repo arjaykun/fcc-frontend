@@ -1,0 +1,45 @@
+.wrapper {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	background-color: #222;
+	align-items: center;
+}
+
+.markdown-container {
+	width: 90%;
+	margin: auto;
+	padding: 50px 0;
+	background-color: #9370DB;
+} 
+
+header {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bolder;
+}
+
+.markdown-workspace {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+}
+
+#editor, #preview {
+	width: 550px;
+	height: 500px;
+	max-width: 96%;
+	margin: 20px 10px;
+	padding: 20px;
+	overflow-y: auto;
+}
+
+#preview {
+	background-color: #f7f7f7;
+}
+
+
+
